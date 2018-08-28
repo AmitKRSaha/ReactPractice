@@ -21,8 +21,23 @@ class App extends Component {
         </p>
        <Router>
          <div>
-           <Link to={'/'}>Form</Link>
-           <Link to={'/Container'}>Container</Link>
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href={null}>Navbar</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+              <a class="nav-link" href={null}><Link to={'/'}>Form<span class="sr-only">(current)</span></Link></a> 
+                {/* <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> */}
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href={null}><Link to={'/Container'}>Container</Link></a>
+              </li>             
+            </ul>
+          </div>
+        </nav>           
          <Switch>
                   <Route exact path='/' component={FormSection} />
                   <Route exact path='/Container' component={Container} />
