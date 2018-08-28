@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -18,12 +19,23 @@ class App extends Component {
         <p className="App-intro">
           This is Sample App for Initial Experience
         </p>
-        <i className="fas fa-spinner"></i>
+       <Router>
+         <div>
+           <Link to={'/'}>Form</Link>
+           <Link to={'/Container'}>Container</Link>
+         <Switch>
+                  <Route exact path='/' component={FormSection} />
+                  <Route exact path='/Container' component={Container} />
+               </Switch>
+         </div>
+       </Router>
+        <i className="fas fa-spinner fa-spin"></i>
         <div className="fa-3x">
               <i className="fas fa-spinner fa-spin"></i></div>
       
-        
-        <div className="row">
+        {/* ==================== This is Combined Sections ===================================== */}
+
+        {/* <div className="row">
         <div className="col-md-6"><FormSection  name="Registration Form" id ="regfrm"/></div>
         <div className="col-md-6"><FormSection  name="Sign In" id ="signin"/></div>
         </div>
@@ -35,7 +47,7 @@ class App extends Component {
         </nav>
         <div className="row">
           <Container />
-        </div>
+        </div> */}
 
       </div>
     );
