@@ -17,10 +17,19 @@ function Book({title}) {
     );
   }
 
-function Turn({author, books}){
-    console.log(author, books);
+function Turn({author, books, highlight}){
+    console.log(author, books , highlight);
+    function hgBgcolor(highlight) {
+        const mapp= {
+            'none': 'white',
+            'correct': 'green',
+            'wrong':'red'
+        };
+        // console.log(mapp[highlight]);
+        return mapp[highlight];
+    }
 
-    return(<div className="row turn" style={{backgroundColor: "white"}}>
+    return(<div className="row turn" style={{backgroundColor: hgBgcolor(highlight)}}>
     <div className="col-4 offset-1">
       <img src={author.imageUrl} className="authorimage" alt="Author"/>
     </div>
@@ -40,11 +49,11 @@ function Footer(){
 }
 
 export function AuthorQuiz(props) {   
-    console.log('From Author :' + props);
+    // console.log('From Author :' + props);
         return (
             <div className = "container-fluid">
                 <Hero />
-               <Turn  {...props.turnData}/>
+               <Turn  {...props.turnData}  highlight={props.highlight}/>
                <Continue />
                <Footer />
             </div>
