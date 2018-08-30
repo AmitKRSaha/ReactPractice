@@ -10,8 +10,8 @@ function Hero(props) {
     );
 }
 
-function Book({title, onClick}) {
-    return (<div className="answer" onClick={() => {onClick(title);}}>
+function Book({title, click}) {
+    return (<div className="answer" onClick={() => {click(title);}}>
       <h4>{title}</h4>
     </div>
     );
@@ -34,7 +34,7 @@ function Turn({author, books, highlight, onAnswerSelected}){
       <img src={author.imageUrl} className="authorimage" alt="Author"/>
     </div>
     <div className="col-6">
-      {books.map((title) => <Book title={title} key={title} onClick = {onAnswerSelected}/>)}
+      {books.map((title) => <Book title={title} key={title} click={onAnswerSelected}/>)}
     </div>
   </div>);
 }
@@ -48,8 +48,10 @@ function Footer(){
     return(<div>This is Footer Section</div>);
 }
 
-export function AuthorQuiz({turnData,highlight , onAnswerSelected}) {   
+export function AuthorQuiz(props) {   
     // console.log('From Author :' + onAnswerSelected);
+    const {turnData,highlight} = {...props.state};
+    const onAnswerSelected = props.onAnswerSelected;
         return (
             <div className = "container-fluid">
                 <Hero />

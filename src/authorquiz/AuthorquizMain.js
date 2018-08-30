@@ -63,15 +63,25 @@ const state = {
     highlight: ''
 };
 
-function onAnswerSelected(answer){
-  const isCorrect = state.turnData.author.books.some((book) => book === answer);
-  state.highlight = isCorrect ? 'correct' : 'wrong';  
-  console.log(state.highlight);
-}
 
+export class AuthorQuizMain extends React.Component{
+    constructor(){
+        super();       
+        this.onAnswerSelected = this.onAnswerSelected.bind(this);
+        this.render= this.render.bind(this);
+    }
 
-export function AuthorQuizMain() {   
+    onAnswerSelected(answer){
+        const isCorrect = state.turnData.author.books.some((book) => book === answer);
+        state.highlight = isCorrect ? 'correct' : 'wrong';  
+        console.log(state.highlight);  
+        this.setState(prevState => ({
+            highlight: isCorrect ? 'correct' : 'wrong'
+        }));
+    }
+    render() {
         return (
-            <AuthorQuiz  {...state} onAnswerSelected={onAnswerSelected}/>
+            <AuthorQuiz  state={{...state}} onAnswerSelected={this.onAnswerSelected}/>
         );
+    }
 }
