@@ -10,15 +10,15 @@ function Hero(props) {
     );
 }
 
-function Book({title}) {
-    return (<div className="answer">
+function Book({title, onClick}) {
+    return (<div className="answer" onClick={() => {onClick(title);}}>
       <h4>{title}</h4>
     </div>
     );
   }
 
-function Turn({author, books, highlight}){
-    console.log(author, books , highlight);
+function Turn({author, books, highlight, onAnswerSelected}){
+    // console.log(onAnswerSelected);
     function hgBgcolor(highlight) {
         const mapp= {
             'none': 'white',
@@ -34,7 +34,7 @@ function Turn({author, books, highlight}){
       <img src={author.imageUrl} className="authorimage" alt="Author"/>
     </div>
     <div className="col-6">
-      {books.map((title) => <Book title={title} key={title} />)}
+      {books.map((title) => <Book title={title} key={title} onClick = {onAnswerSelected}/>)}
     </div>
   </div>);
 }
@@ -48,12 +48,12 @@ function Footer(){
     return(<div>This is Footer Section</div>);
 }
 
-export function AuthorQuiz(props) {   
-    // console.log('From Author :' + props);
+export function AuthorQuiz({turnData,highlight , onAnswerSelected}) {   
+    // console.log('From Author :' + onAnswerSelected);
         return (
             <div className = "container-fluid">
                 <Hero />
-               <Turn  {...props.turnData}  highlight={props.highlight}/>
+               <Turn  {...turnData}  highlight={highlight} onAnswerSelected ={onAnswerSelected}/>
                <Continue />
                <Footer />
             </div>

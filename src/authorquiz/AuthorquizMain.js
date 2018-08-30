@@ -2,7 +2,6 @@ import React from 'react';
 import {AuthorQuiz} from './AuthorQuiz'
 import {shuffle, sample} from 'underscore';
 
-
 const authors = [
     {
       name: 'Mark Twain',
@@ -64,8 +63,15 @@ const state = {
     highlight: ''
 };
 
+function onAnswerSelected(answer){
+  const isCorrect = state.turnData.author.books.some((book) => book === answer);
+  state.highlight = isCorrect ? 'correct' : 'wrong';  
+  console.log(state.highlight);
+}
+
+
 export function AuthorQuizMain() {   
         return (
-            <AuthorQuiz  {...state}/>
+            <AuthorQuiz  {...state} onAnswerSelected={onAnswerSelected}/>
         );
 }
