@@ -10,16 +10,24 @@ function Hero(props) {
     );
 }
 
+function Book({title}) {
+    return (<div className="answer">
+      <h4>{title}</h4>
+    </div>
+    );
+  }
+
 function Turn({author, books}){
-    return(<div className="row turn" style={{backgroundColor: 'white'}}>
-    <div className="col-4">
-    {author}
-    {/* <img  src={author.imageUrl} className="author" alt="Author" /> */}
+    console.log(author, books);
+
+    return(<div className="row turn" style={{backgroundColor: "white"}}>
+    <div className="col-4 offset-1">
+      <img src={author.imageUrl} className="authorimage" alt="Author"/>
     </div>
     <div className="col-6">
-    {/* {books.map((title) => <p>{title}</p>)} */}
+      {books.map((title) => <Book title={title} key={title} />)}
     </div>
-    </div>);
+  </div>);
 }
 
 
@@ -36,11 +44,9 @@ export function AuthorQuiz(props) {
         return (
             <div className = "container-fluid">
                 <Hero />
-               <Turn  {...props}/>
+               <Turn  {...props.turnData}/>
                <Continue />
                <Footer />
             </div>
         );
 }
-
-// export default AuthorQuiz;

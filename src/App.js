@@ -7,7 +7,7 @@ import '../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css';
 
 import { FormSection } from './form/form'; 
 import { Container } from './componentInterconnection/container';
-// import { AuthorQuiz } from './authorquiz/AuthorQuiz';
+import { AuthorQuizMain } from './authorquiz/AuthorquizMain'
 
 class App extends Component {
 
@@ -38,18 +38,16 @@ class App extends Component {
               <li className="nav-item">
                 <Link to={'/Container'}  className="nav-link">Container</Link>
               </li> 
-              {/* <li className="nav-item">
-                <Link to={{
-                  pathname: '/Authorquiz',
-                  state: {...abc} }} className="nav-link" >Author Quiz</Link>
-              </li>              */}
+              <li className="nav-item">
+                <Link to={'/AuthorQuizMain'} className="nav-link" >Author Quiz</Link>
+              </li>             
             </ul>
           </div>
         </nav>           
          <Switch>
             <Route exact path='/' component={FormSection} />
             <Route exact path='/Container' component={Container} />
-            {/* <Route exact path='/Authorquiz' component={AuthorQuiz} /> */}
+            <Route exact path='/AuthorQuizMain' component={AuthorQuizMain} />
           </Switch>
          </div>
        </Router>
