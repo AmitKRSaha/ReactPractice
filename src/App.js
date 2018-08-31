@@ -5,10 +5,25 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css';
 
+// import asyncComponent from './lazyload/AsyncComponent';
 import { FormSection } from './form/form'; 
 import { Container } from './componentInterconnection/container';
 import { AuthorQuizMain } from './authorquiz/AuthorquizMain'
 import MyComponent from './lazyload/lazyload';
+
+// For Lazy Loading
+// const FormSection = asyncComponent(() =>
+//     import('./form/form').then(module => module.default)
+// )
+
+// const Container = asyncComponent(() =>
+//     import('./componentInterconnection/container').then(module => module.default)
+// )
+
+// const AuthorQuizMain = asyncComponent(() =>
+//     import('./authorquiz/AuthorquizMain').then(module => module.default)
+// )
+
 
 class App extends Component {
 
