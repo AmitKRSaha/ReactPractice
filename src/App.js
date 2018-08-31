@@ -5,13 +5,14 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css';
 
-// import asyncComponent from './lazyload/AsyncComponent';
 import { FormSection } from './form/form'; 
 import { Container } from './componentInterconnection/container';
 import { AuthorQuizMain } from './authorquiz/AuthorquizMain'
 import MyComponent from './lazyload/lazyload';
 
 // For Lazy Loading
+// import asyncComponent from './lazyload/AsyncComponent';
+
 // const FormSection = asyncComponent(() =>
 //     import('./form/form').then(module => module.default)
 // )
