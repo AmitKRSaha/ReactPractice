@@ -31,6 +31,10 @@ const Home = asyncComponent(() =>
     import('./Home/Home').then(module => module.default)
 )
 
+const Maps = asyncComponent(() =>
+    import('./Maps/Maps').then(module => module.default)
+)
+
 
 class App extends Component {
 
@@ -68,6 +72,9 @@ class App extends Component {
               </li> 
               <li className="nav-item">
                 <Link to={'/AuthorQuizMain'} className="nav-link" >Author Quiz</Link>
+              </li> 
+              <li className="nav-item">
+                <Link to={'/Maps'} className="nav-link" >Maps</Link>
               </li>             
             </ul>
           </div>
@@ -77,6 +84,7 @@ class App extends Component {
             <Route exact path='/Form' component={FormSection} />
             <Route exact path='/Container' component={Container} />
             <Route exact path='/AuthorQuizMain' component={AuthorQuizMain} />
+            <Route path="/maps" component={Maps} />
           </Switch>
          </div>
        </Router>

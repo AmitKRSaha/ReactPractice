@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Home.css'
-// import Button from '../NavButton/NavButton'
+import Button from '../NavButton/NavButton'
 
 export default class Home extends Component {
     render () {
@@ -11,7 +11,11 @@ export default class Home extends Component {
                         <h1 className="title">Lazy Loading</h1>
                         <h2 className="subtitle">
                             A simple app to demonstrate how  React works.
-                        </h2>                        
+                        </h2>
+                        <section className="bottom">
+                            <Button name="Go to Maps page" link="/maps" />
+                            <Button name="Go to Blog page" link="/blog" />
+                        </section>                   
                     </div>
                 </section>
 
