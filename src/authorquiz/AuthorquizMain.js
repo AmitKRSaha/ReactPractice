@@ -64,7 +64,7 @@ const state = {
 };
 
 
-export class AuthorQuizMain extends React.Component{
+export default class AuthorQuizMain extends React.Component{
     constructor(){
         super();       
         this.onAnswerSelected = this.onAnswerSelected.bind(this);

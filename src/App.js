@@ -5,25 +5,31 @@ import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css';
 
-import { FormSection } from './form/form'; 
-import { Container } from './componentInterconnection/container';
-import { AuthorQuizMain } from './authorquiz/AuthorquizMain'
-import MyComponent from './lazyload/lazyload';
+// import { FormSection } from './form/form'; 
+// import { Container } from './componentInterconnection/container';
+// import { AuthorQuizMain } from './authorquiz/AuthorquizMain';
+// import {Home} from './Home/Home';
+
+// import MyComponent from './lazyload/lazyload';
 
 // For Lazy Loading
-// import asyncComponent from './lazyload/AsyncComponent';
+import asyncComponent from './lazyload/AsyncComponent';
 
-// const FormSection = asyncComponent(() =>
-//     import('./form/form').then(module => module.default)
-// )
+const FormSection = asyncComponent(() =>
+    import('./form/form').then(module => module.default)
+)
 
-// const Container = asyncComponent(() =>
-//     import('./componentInterconnection/container').then(module => module.default)
-// )
+const Container = asyncComponent(() =>
+    import('./componentInterconnection/container').then(module => module.default)
+)
 
-// const AuthorQuizMain = asyncComponent(() =>
-//     import('./authorquiz/AuthorquizMain').then(module => module.default)
-// )
+const AuthorQuizMain = asyncComponent(() =>
+    import('./authorquiz/AuthorquizMain').then(module => module.default)
+)
+
+const Home = asyncComponent(() =>
+    import('./Home/Home').then(module => module.default)
+)
 
 
 class App extends Component {
@@ -50,7 +56,12 @@ class App extends Component {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item active">
-                <Link to={'/'} className="nav-link">Form<span className="sr-only">(current)</span></Link> 
+                <Link to="/" className="nav-link">
+                    <span>Lazy Loading Routes<span className="sr-only">(current)</span></span>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={'/Form'} className="nav-link">Form</Link> 
               </li>
               <li className="nav-item">
                 <Link to={'/Container'}  className="nav-link">Container</Link>
@@ -62,14 +73,15 @@ class App extends Component {
           </div>
         </nav>           
          <Switch>
-            <Route exact path='/' component={FormSection} />
+            <Route exact path="/" component={Home} />
+            <Route exact path='/Form' component={FormSection} />
             <Route exact path='/Container' component={Container} />
             <Route exact path='/AuthorQuizMain' component={AuthorQuizMain} />
           </Switch>
          </div>
        </Router>
-       <MyComponent />
-       {/* <i className="fas fa-spinner fa-spin"></i>
+       {/*<MyComponent />
+        <i className="fas fa-spinner fa-spin"></i>
         <div className="fa-3x">
               <i className="fas fa-spinner fa-spin"></i></div> */}
       

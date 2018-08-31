@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 export default function asyncComponent(getComponent) {
     class AsyncComponent extends Component {
         static Component = null;
@@ -20,5 +21,6 @@ export default function asyncComponent(getComponent) {
             return null
         }
     }
+
     return AsyncComponent;
 }
