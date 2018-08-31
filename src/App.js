@@ -8,6 +8,7 @@ import '../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css';
 import { FormSection } from './form/form'; 
 import { Container } from './componentInterconnection/container';
 import { AuthorQuizMain } from './authorquiz/AuthorquizMain'
+import MyComponent from './lazyload/lazyload';
 
 class App extends Component {
 
@@ -51,6 +52,7 @@ class App extends Component {
           </Switch>
          </div>
        </Router>
+       <MyComponent />
        {/* <i className="fas fa-spinner fa-spin"></i>
         <div className="fa-3x">
               <i className="fas fa-spinner fa-spin"></i></div> */}
@@ -69,8 +71,7 @@ class App extends Component {
         </nav>
         <div className="row">
           <Container />
-        </div> */}
-
+        </div> */}        
       </div>
     );
   }
