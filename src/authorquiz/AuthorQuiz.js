@@ -40,8 +40,16 @@ function Turn({author, books, highlight, onAnswerSelected}){
 }
 
 
-function Continue(){
-    return(<div>Continue</div>);
+function Continue({ show, onContinue }){
+    return (
+        <div className="row continue">
+        { show 
+          ? <div className="col-11">
+              <button className="btn btn-primary btn-lg float-right" onClick={onContinue}>Continue</button>
+            </div>
+          : null }
+        </div>
+      );
 }
 
 function Footer(){
@@ -52,11 +60,12 @@ export function AuthorQuiz(props) {
     // console.log('From Author :' + onAnswerSelected);
     const {turnData,highlight} = {...props.state};
     const onAnswerSelected = props.onAnswerSelected;
+    const onContinue = props.onContinue;
         return (
             <div className = "container-fluid">
                 <Hero />
                <Turn  {...turnData}  highlight={highlight} onAnswerSelected ={onAnswerSelected}/>
-               <Continue />
+               <Continue  show={highlight === 'correct'} onContinue={onContinue}/>
                <Footer />
             </div>
         );
